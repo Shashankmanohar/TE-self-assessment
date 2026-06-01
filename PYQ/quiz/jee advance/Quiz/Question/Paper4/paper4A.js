@@ -1,0 +1,66 @@
+var qansPaper = [
+
+    { "question": "page01", "ans": 124 },
+    { "question": "page02", "ans": 14 },
+    { "question": "page03", "ans": 23 },
+    { "question": "page04", "ans": 24 },
+    { "question": "page05", "ans": 134 },
+    { "question": "page06", "ans": 12 },
+
+    { "question": "page07", "ans": 0.3 },
+    { "question": "page08", "ans": 9.09},
+    { "question": "page09", "ans": 0.18 },
+    { "question": "page10", "ans": 0.16 },
+    { "question": "page11", "ans": 100 },
+    { "question": "page12", "ans": 60 },
+    { "question": "page13", "ans": 3 },
+    { "question": "page14", "ans": 9 }, 
+	
+	{ "question": "page15", "ans": 1 },
+    { "question": "page16", "ans": 3 },
+    { "question": "page17", "ans": 1 },
+    { "question": "page18", "ans": 2 },
+	
+    { "question": "page19", "ans": 12 },
+    { "question": "page20", "ans": 34 },
+    { "question": "page21", "ans": 234 },
+    { "question": "page22", "ans": 123 },
+    { "question": "page23", "ans": 124 },
+    { "question": "page24", "ans": 124 },
+
+    { "question": "page25", "ans": 0.215 },
+    { "question": "page26", "ans": 0.86 },
+    { "question": "page27", "ans": 3.57},
+    { "question": "page28", "ans": 1.23 },
+    { "question": "page29", "ans": 1.875 },
+    { "question": "page30", "ans": 18.75 },
+    { "question": "page31", "ans": 10 },
+    { "question": "page32", "ans": 30 },
+    
+	{ "question": "page33", "ans": 1 },
+    { "question": "page34", "ans": 4 },
+    { "question": "page35", "ans": 3 },    
+    { "question": "page36", "ans": 4 },    
+    { "question": "page37", "ans": 124 },
+	
+    { "question": "page38", "ans": 12 },
+    { "question": "page39", "ans": 123 },
+    { "question": "page40", "ans": 13 },
+    { "question": "page41", "ans": 123 },
+    { "question": "page42", "ans": 124 },
+
+    { "question": "page43", "ans": 1.50 },
+    { "question": "page44", "ans": 2.00},
+    { "question": "page45", "ans": 4 },
+    { "question": "page46", "ans": 6.00 },
+    { "question": "page47", "ans": 2.00},
+    { "question": "page48", "ans": 1.50 },
+    { "question": "page49", "ans": 214 },
+    { "question": "page50", "ans": 4 },
+	
+    { "question": "page51", "ans": 4 },
+    { "question": "page52", "ans": 2 },
+    { "question": "page53", "ans": 3 },
+    { "question": "page54", "ans": 4 },
+    
+];

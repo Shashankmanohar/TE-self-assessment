@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="CBT Mock Test Exam Instructions.">
+    <title>CBT Self-Assessment Practice Instructions</title>
+
+    <!-- Google Fonts: Inter + Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <!-- CSS Design System -->
+    <link href="css/project.css" rel="stylesheet" />
+
+    <style>
+        /* Core layout override and Neo-Brutalist enhancements */
+        body {
+            background-color: #FFFFFF;
+            color: #000000;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .instructions-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 8fr 4fr;
+            gap: 30px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @media (max-width: 991px) {
+            .instructions-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Top Header Board */
+        .cbt-header {
+            background: #FFFFFF;
+            border: 4px solid #401E5D;
+            box-shadow: 6px 6px 0px 0px #401E5D;
+            padding: 24px;
+            margin: 30px auto 10px;
+            max-width: 1160px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .cbt-header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .cbt-logo {
+            width: 60px;
+            height: 60px;
+            border: 3px solid #401E5D;
+            object-fit: contain;
+            background: #FFFFFF;
+        }
+
+        .cbt-title-group h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 0;
+            letter-spacing: -0.02em;
+            color: #401E5D;
+        }
+
+        .cbt-title-group p {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #401E5D;
+            margin: 4px 0 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .cbt-header-right {
+            text-align: right;
+        }
+
+        .cbt-timer-badge {
+            background: #401E5D;
+            color: #FFFFFF;
+            font-weight: 800;
+            padding: 8px 16px;
+            border: 3px solid #401E5D;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Left Column: Instructions Board */
+        .instructions-board {
+            background: #FFFFFF;
+            border: 4px solid #401E5D;
+            box-shadow: 8px 8px 0px 0px #401E5D;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Lang Select Tabs */
+        .lang-tabs {
+            display: flex;
+            border-bottom: 4px solid #401E5D;
+            margin-bottom: 10px;
+            gap: 8px;
+        }
+
+        .lang-tab-btn {
+            background: #FFFFFF;
+            color: #000000;
+            border: 3px solid #401E5D;
+            border-bottom: none;
+            padding: 12px 24px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.1s ease;
+            position: relative;
+            top: 4px;
+        }
+
+        .lang-tab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 2px 0px 0px 0px #401E5D;
+        }
+
+        .lang-tab-btn.active {
+            background: #401E5D;
+            color: #FFFFFF;
+            top: 4px;
+            padding-bottom: 16px;
+            z-index: 2;
+        }
+
+        /* Content Areas */
+        .instruction-content {
+            display: none;
+            height: 480px;
+            overflow-y: auto;
+            padding-right: 10px;
+            border: 3px solid #401E5D;
+            padding: 20px;
+            background: #F9F9F9;
+        }
+
+        .instruction-content.active {
+            display: block;
+        }
+
+        .instruction-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .instruction-content::-webkit-scrollbar-track {
+            background: #FFFFFF;
+            border-left: 2px solid #401E5D;
+        }
+
+        .instruction-content::-webkit-scrollbar-thumb {
+            background: #401E5D;
+        }
+
+        .instruction-content h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #401E5D;
+            padding-bottom: 8px;
+            color: #401E5D;
+        }
+
+        .instruction-content p, .instruction-content li {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .instruction-content ol {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Palette States styling */
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .palette-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #FFFFFF;
+            border: 2px solid #401E5D;
+            padding: 10px;
+        }
+
+        .palette-icon {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1rem;
+            border: 2px solid #401E5D;
+            flex-shrink: 0;
+        }
+
+        /* Palette state styling matching real CBT */
+        .pi-not-visited {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+
+        .pi-not-answered {
+            background-color: #EE5A24;
+            color: #FFFFFF;
+            border-radius: 4px;
+        }
+
+        .pi-answered {
+            background-color: #009432;
+            color: #FFFFFF;
+            border-radius: 50% 50% 0 0;
+        }
+
+        .pi-marked {
+            background-color: #5758BB;
+            color: #FFFFFF;
+            border-radius: 50%;
+        }
+
+        .pi-answered-marked {
+            background-color: #5758BB;
+            color: #FFFFFF;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .pi-answered-marked::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            width: 14px;
+            height: 14px;
+            background-color: #009432;
+            border: 2px solid #FFFFFF;
+            border-radius: 50%;
+        }
+
+        .palette-desc {
+            font-size: 0.85rem !important;
+            font-weight: 700 !important;
+            margin: 0 !important;
+        }
+
+        /* Undertaking Box */
+        .undertaking-card {
+            background: #FFF9E6;
+            border: 3px solid #401E5D;
+            padding: 20px;
+            margin-top: 10px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .checkbox-container input {
+            width: 22px;
+            height: 22px;
+            accent-color: #401E5D;
+            border: 2px solid #401E5D;
+            cursor: pointer;
+            margin-top: 3px;
+        }
+
+        .checkbox-label {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            font-weight: 700;
+            color: #000000;
+        }
+
+        /* Right Column: Candidate Panel */
+        .candidate-panel {
+            background: #FFFFFF;
+            border: 4px solid #401E5D;
+            box-shadow: 8px 8px 0px 0px #401E5D;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: fit-content;
+        }
+
+        .candidate-profile-card {
+            background: #F9F9F9;
+            border: 3px solid #401E5D;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .candidate-avatar {
+            width: 110px;
+            height: 110px;
+            border: 3px solid #401E5D;
+            background: #FFFFFF;
+            padding: 4px;
+            object-fit: cover;
+        }
+
+        .candidate-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 900;
+            margin: 0;
+            color: #401E5D;
+        }
+
+        .candidate-roll {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin: 0;
+            background: #401E5D;
+            padding: 4px 12px;
+            border: 2px solid #401E5D;
+        }
+
+        .candidate-meta-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .candidate-meta-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            border-bottom: 1px dashed #CCCCCC;
+            padding-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .candidate-meta-item strong {
+            font-weight: 800;
+            color: #401E5D;
+        }
+
+        /* Action Buttons */
+        .action-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .start-btn {
+            background: #401E5D;
+            color: #FFFFFF;
+            border: 4px solid #401E5D;
+            box-shadow: 4px 4px 0px 0px #401E5D;
+            padding: 16px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.15s cubic-bezier(0.19, 1, 0.22, 1);
+            text-decoration: none;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .start-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px 0px #401E5D;
+            background: #54287B;
+        }
+
+        .start-btn:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px 0px #401E5D;
+        }
+
+        .back-btn-custom {
+            background: #FFFFFF;
+            color: #000000;
+            border: 3px solid #401E5D;
+            box-shadow: 3px 3px 0px 0px #401E5D;
+            padding: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 0.95rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.12s cubic-bezier(0.19, 1, 0.22, 1);
+            text-decoration: none;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        .back-btn-custom:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px 0px #401E5D;
+            color: #FFFFFF;
+            background: #401E5D;
+        }
+
+        .back-btn-custom:active {
+            transform: translate(3px, 3px);
+            box-shadow: 0px 0px 0px 0px #401E5D;
+        }
+
+        /* Custom Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg">
+
+    <!-- Top Header Board -->
+    <header class="cbt-header">
+        <div class="cbt-header-left">
+            <img src="https://teamexcellentcareerinstitute.in/assets/Favicon-BHqOP9mU.webp" onerror="this.src='img/logo.PNG'" alt="Team Excellent Logo" class="cbt-logo">
+            <div class="cbt-title-group">
+                <h1>Mock Simulation Practice</h1>
+                <p>All India Test Series (AITS) Mock Simulation</p>
+            </div>
+        </div>
+        <div class="cbt-header-right">
+            <div class="cbt-timer-badge">Duration: 180 Mins</div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <div class="instructions-container">
+        
+        <!-- Left Column: Instructions -->
+        <section class="instructions-board">
+            
+            <!-- Language Tab Row -->
+            <div class="lang-tabs">
+                <button class="lang-tab-btn active" onclick="changeIndtruct('en')">English</button>
+                <button class="lang-tab-btn" onclick="changeIndtruct('hi')">हिन्दी</button>
+                <button class="lang-tab-btn" onclick="changeIndtruct('gj')">ગુજરાતી</button>
+            </div>
+
+            <!-- English Instruction Content -->
+            <div id="en" class="instruction-content active">
+                <h3>General Instructions:</h3>
+                <p><strong>Please read the following instructions carefully:</strong></p>
+                <ol>
+                    <li>Total duration of the examination is <strong>180 minutes</strong> (3 Hours).</li>
+                    <li>The clock will be set at the server. The countdown timer in the top right corner of the screen will display the remaining time available for you to complete the examination. When the timer reaches zero, the examination will end by itself. You do not need to end or submit your exam manually.</li>
+                    <li>The Question Palette displayed on the right side of the screen will show the status of each question using one of the following symbols:</li>
+                </ol>
+
+                <!-- Palette Guide -->
+                <div class="palette-grid">
+                    <div class="palette-item">
+                        <div class="palette-icon pi-not-visited">1</div>
+                        <p class="palette-desc">You have not visited the question yet.</p>
+                    </div>
+                    <div class="palette-item">
+                        <div class="palette-icon pi-not-answered">3</div>
+                        <p class="palette-desc">You have not answered the question.</p>
+                    </div>
+                    <div class="palette-item">
+                        <div class="palette-icon pi-answered">5</div>
+                        <p class="palette-desc">You have answered the question.</p>
+                    </div>
+                    <div class="palette-item">
+                        <div class="palette-icon pi-marked">7</div>
+                        <p class="palette-desc">You have NOT answered the question, but have marked the question for review.</p>
+                    </div>
+                    <div class="palette-item">
+                        <div class="palette-icon pi-answered-marked">9</div>
+                        <p class="palette-desc">The question is answered and marked for review. It will be considered for evaluation.</p>
+                    </div>
+                </div>
+
+                <h3>Navigating to a Question:</h3>
+                <ol start="4">
+                    <li>To select a question to answer, click on the question number in the Question Palette at the right of your screen.</li>
+                    <li>Click on <strong>Save & Next</strong> to save your answer for the current question and then go to the next question.</li>
+                    <li>Click on <strong>Mark for Review & Next</strong> to save your answer for the current question, mark it for review, and then go to the next question.</li>
+                </ol>
+
+                <h3>Answering a Question:</h3>
+                <ol start="7">
+                    <li>Procedure for answering a multiple choice type question:
+                        <ul>
+                            <li>To select your answer, click on the button of one of the options.</li>
+                            <li>To deselect your chosen answer, click on the button of the chosen option again or click on the <strong>Clear Response</strong> button.</li>
+                            <li>To change your chosen answer, click on the button of another option.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="undertaking-card">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="en_ch">
+                        <span class="checkbox-label">I have read, understood and agree to abide by all the instructions stated above. I confirm that all computer hardware allotted to me is in good working condition.</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Hindi Instruction Content -->
+            <div id="hi" class="instruction-content">
+                <h3>सामान्य निर्देश:</h3>
+                <p><strong>कृपया निम्नलिखित निर्देशों को ध्यान से पढ़ें:</strong></p>
+                <ol>
+                    <li>परीक्षा की कुल अवधि <strong>180 मिनट</strong> (3 घंटे) है।</li>
+                    <li>सर्वर पर घड़ी सेट की जाएगी। स्क्रीन के ऊपरी दाएं कोने में उलटी गिनती टाइमर परीक्षा पूरी करने के लिए आपके पास उपलब्ध शेष समय प्रदर्शित करेगा। जब टाइमर शून्य पर पहुंच जाएगा, तो परीक्षा अपने आप समाप्त हो जाएगी। आपको अपनी परीक्षा को मैन्युअल रूप से समाप्त या जमा करने की आवश्यकता नहीं है।</li>
+                    <li>स्क्रीन के दाईं ओर प्रदर्शित प्रश्न पैलेट प्रत्येक प्रश्न की स्थिति को निम्नलिखित प्रतीकों में से किसी एक का उपयोग करके दिखाएगा:</li>
+                </ol>
+
+                <!-- Palette Guide -->
+                <div class="palette-grid">
+                    <div class="palette-item">
+                        <div class="palette-icon pi-not-visited">1</div>
+                        <p class="palette-desc">आपने अभी तक प्रश्न नहीं देखा है।</p>
+                    </div>
+                    <div class="palette-item">
+                        <div class="palette-icon pi-not-answered">3</div>
+                        <p class="palette-desc">आपने प्रश्न का उत्तर नहीं दिया है।</p>
+                    </div>
+                    <div class="palette-item">
+                        <div class="palette-icon pi-answered">5</div>
+                        <p class="palette-desc">आप प्रश्न का उत्तर दे चुके हैं।</p>
+                    </div>
+                    <div class="palette-item">
+                        <div class="palette-icon pi-marked">7</div>
+                        <p class="palette-desc">आपने प्रश्न का उत्तर नहीं दिया है, लेकिन समीक्षा के लिए चिह्नित किया है।</p>
+                    </div>
+                    <div class="palette-item">
+                        <div class="palette-icon pi-answered-marked">9</div>
+                        <p class="palette-desc">प्रश्न का उत्तर दिया गया है और समीक्षा के लिए चिह्नित है। इसका मूल्यांकन किया जाएगा।</p>
+                    </div>
+                </div>
+
+                <h3>प्रश्नों पर जाना:</h3>
+                <ol start="4">
+                    <li>उत्तर देने के लिए कोई प्रश्न चुनने के लिए, स्क्रीन के दाईं ओर स्थित प्रश्न पैलेट में प्रश्न संख्या पर क्लिक करें।</li>
+                    <li>वर्तमान प्रश्न के लिए अपना उत्तर सुरक्षित करने के लिए <strong>Save & Next</strong> पर क्लिक करें और फिर अगले प्रश्न पर जाएं।</li>
+                    <li>उत्तर सुरक्षित करने और समीक्षा के लिए चिह्नित करने के लिए <strong>Mark for Review & Next</strong> पर क्लिक करें।</li>
+                </ol>
+
+                <div class="undertaking-card">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="hi_ch">
+                        <span class="checkbox-label">मैंने ऊपर बताए गए सभी निर्देशों को पढ़ और समझ लिया है और मैं उनका पालन करने के लिए सहमत हूँ। मैं पुष्टि करता हूँ कि मुझे आवंटित सभी कंप्यूटर हार्डवेयर ठीक से काम कर रहे हैं।</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Gujarati Instruction Content -->
+            <div id="gj" class="instruction-content">
+                <h3>સામાન્ય સૂચનાઓ:</h3>
+                <p><strong>કૃપા કરીને નીચેની સૂચનાઓ ધ્યાનપૂર્વક વાંચો:</strong></p>
+                <ol>
+                    <li>પરીક્ષાનો કુલ સમયગાળો <strong>180 મિનિટ</strong> (3 કલાક) છે.</li>
+                    <li>સર્વર પર ઘડિયાળ સેટ કરવામાં આવશે. સ્ક્રીનના ઉપરના જમણા ખૂણામાં કાઉન્ટડાઉન ટાઈમર પરીક્ષા પૂર્ણ કરવા માટે તમારી પાસે ઉપલબ્ધ બાકીનો સમય દર્શાવશે. જ્યારે ટાઈમર શૂન્ય પર પહોંચશે, ત્યારે પરીક્ષા આપમેળે સમાપ્ત થઈ જશે.</li>
+                    <li>સ્ક્રીનની જમણી બાજુએ પ્રદર્શિત પ્રશ્ન પેલેટ દરેક પ્રશ્નની સ્થિતિ નીચેના પ્રતીકોમાંથી એકનો ઉપયોગ કરીને બતાવશે:</li>
+                </ol>
+
+                <!-- Palette Guide -->
+                <div class="palette-grid">
+                    <div class="palette-item">
+                        <div class="palette-icon pi-not-visited">1</div>
+                        <p class="palette-desc">તમે હજી સુધી પ્રશ્નની મુલાકાત લીધી નથી.</p>
+                    </div>
+                    <div class="palette-item">
+                        <div class="palette-icon pi-not-answered">3</div>
+                        <p class="palette-desc">તમે પ્રશ્નનો જવાબ આપ્યો નથી.</p>
+                    </div>
+                    <div class="palette-item">
+                        <div class="palette-icon pi-answered">5</div>
+                        <p class="palette-desc">તમે પ્રશ્નનો જવાબ આપ્યો છે.</p>
+                    </div>
+                    <div class="palette-item">
+                        <div class="palette-icon pi-marked">7</div>
+                        <p class="palette-desc">તમે પ્રશ્નનો જવાબ આપ્યો નથી, પરંતુ પ્રશ્નને સમીક્ષા માટે ચિહ્નિત કર્યો છે.</p>
+                    </div>
+                    <div class="palette-item">
+                        <div class="palette-icon pi-answered-marked">9</div>
+                        <p class="palette-desc">પ્રશ્નનો જવાબ આપવામાં આવ્યો છે અને સમીક્ષા માટે ચિહ્નિત થયેલ છે. તેનું મૂલ્યાંકન કરવામાં આવશે.</p>
+                    </div>
+                </div>
+
+                <h3>પ્રશ્ન પર નેવિગેટ કરવું:</h3>
+                <ol start="4">
+                    <li>જવાબ આપવા માટે પ્રશ્ન પસંદ કરવા માટે, સ્ક્રીનની જમણી બાજુએ પ્રશ્ન પેલેટમાં પ્રશ્ન નંબર પર ક્લિક કરો.</li>
+                    <li>વર્તમાન પ્રશ્ન માટે તમારો જવાબ સાચવવા માટે <strong>Save & Next</strong> પર ક્લિક કરો og પછી આગલા પ્રશ્ન પર જાઓ.</li>
+                    <li>જવાબ સાચવવા અને સમીક્ષા માટે ચિહ્નિત કરવા <strong>Mark for Review & Next</strong> પર ક્લિક કરો.</li>
+                </ol>
+
+                <div class="undertaking-card">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="gj_ch">
+                        <span class="checkbox-label">મેં ઉપર જણાવેલ તમામ સૂચનાઓ વાંચી, સમજી છે અને હું તેનું પાલન કરવા સંમત છું. હું પુષ્ટિ કરું છું કે મને ફાળવેલ તમામ કમ્પ્યુટર હાર્ડવેર સારી કાર્યકારી સ્થિતિમાં છે.</span>
+                    </label>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Right Column: Candidate Meta -->
+        <aside class="candidate-panel">
+            
+            <div class="candidate-profile-card">
+                <!-- Authentic placeholder candidate photo in Neo-Brutalist frame -->
+                <img src="img/logo.PNG" onerror="this.src='img/noimage.png'" alt="Candidate Photo" class="candidate-avatar">
+                <h2 class="candidate-name">Guest Candidate</h2>
+                <span class="candidate-roll" id="candidateRoll">AITS-2026-ROLL</span>
+
+                <ul class="candidate-meta-list">
+                    <li class="candidate-meta-item">
+                        <span>Subject:</span>
+                        <strong id="lblSubject">Practice Mock Test</strong>
+                    </li>
+                    <li class="candidate-meta-item">
+                        <span>Exam Paper:</span>
+                        <strong id="lblPaperName">Paper 1</strong>
+                    </li>
+                    <li class="candidate-meta-item">
+                        <span>System ID:</span>
+                        <strong>CBT-NODE-101</strong>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Start / Back controls -->
+            <div class="action-container">
+                <button class="start-btn" onclick="triggerStartTest()">I am ready to begin</button>
+                <a href="../index.html" class="back-btn-custom">← Choose Another Paper</a>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        // Keep track of the active instruction language tab (default English: 'en')
+        var currentLang = 'en';
+
+        // Parse query parameter to fetch Paper Details
+        $(document).ready(function () {
+            try {
+                var path = window.location.pathname.toLowerCase();
+                var category = "Online Test Series";
+                var examName = "CBT Self-Assessment";
+
+                if (path.includes("/jee advance/") || path.includes("/jee%20advance/")) {
+                    category = "JEE (Advanced) Mock";
+                    examName = "JEE Advanced CBT";
+                } else if (path.includes("/jee main/") || path.includes("/jee%20main/")) {
+                    category = "JEE (Main) Mock";
+                    examName = "JEE Main CBT";
+                } else if (path.includes("/neet/")) {
+                    category = "NEET Mock";
+                    examName = "NEET CBT Practice";
+                } else if (path.includes("/ncert/")) {
+                    category = "NCERT Mock";
+                    examName = "NCERT Self-Assessment";
+                } else if (path.includes("/board/")) {
+                    var isClass12 = path.includes("/12/");
+                    category = "Board Practice Test";
+                    examName = isClass12 ? "Class 12th Board CBT" : "Class 11th Board CBT";
+                } else if (path.includes("/pyq/")) {
+                    category = "PYQ Practice Test";
+                    examName = "Previous Year Questions (PYQ)";
+                }
+
+                // Try to find the subject from path
+                var subject = "";
+                if (path.includes("/chemistry/")) subject = "Chemistry";
+                else if (path.includes("/physics/")) subject = "Physics";
+                else if (path.includes("/maths/") || path.includes("/mathematics/")) subject = "Mathematics";
+                else if (path.includes("/biology/")) subject = "Biology";
+
+                if (subject) {
+                    category += " — " + subject;
+                }
+
+                // Update UI elements
+                $('#lblSubject').text(category);
+                $('.cbt-title-group h1').text(examName);
+
+                // Handle Paper Name and Roll from search parameter
+                var rawSearch = window.location.search;
+                if (rawSearch && rawSearch.includes("type=")) {
+                    var encodedVal = rawSearch.split("?")[1].split("type=")[1].split("&")[0];
+                    var paperCode = atob(encodedVal);
+                    var paperNum = parseInt(paperCode) - 100;
+                    if (paperNum >= 1 && paperNum <= 20) {
+                        $('#lblPaperName').text('Paper ' + paperNum);
+                        $('#candidateRoll').text('AITS-2026-ROLL-' + paperNum);
+                    }
+                }
+            } catch (err) {
+                console.error("Failed to parse dynamic metadata:", err);
+            }
+        });
+
+        // Switch languages tabs on click
+        function changeIndtruct(q) {
+            currentLang = q;
+            
+            // Remove active classes
+            $('.lang-tab-btn').removeClass('active');
+            $('.instruction-content').removeClass('active');
+            
+            // Apply active to current
+            // Target button by its matching onclick attribute string
+            $('.lang-tab-btn').each(function() {
+                if ($(this).attr('onclick').includes("'" + q + "'")) {
+                    $(this).addClass('active');
+                }
+            });
+            $('#' + q).addClass('active');
+        }
+
+        // Start button action
+        function triggerStartTest() {
+            check_instruction(currentLang);
+        }
+
+        // Native legacy function to remain backward compatible
+        function check_instruction(id) {
+            try {
+                var searchStr = window.location.search;
+                var encodedVal = searchStr.split("?")[1].split('type=')[1].split('&')[0];
+                var code = atob(encodedVal);
+            } catch (err) {
+                alert("Invalid URL Parameters. Please restart mock test from dashboard.");
+                return;
+            }
+
+            var pageName = "";
+            var isChecked = $('#' + id + '_ch').prop("checked");
+
+            if (isChecked == false || isChecked == undefined) {
+                if (id == 'en') {
+                    alert('Please accept the undertaking terms and conditions before proceeding.');
+                } else if (id == 'hi') {
+                    alert('आगे बढ़ने से पहले कृपया उपक्रम नियमों और शर्तों को स्वीकार करें।');
+                } else {
+                    alert('આગળ વધતા પહેલાં કૃપા કરીને બાંહેધરી નિયમો અને શરતો સ્વીકારો.');
+                }
+            } else {
+                switch (code) {
+                    case '101': pageName = "Paper1.html"; break;
+                    case '102': pageName = "Paper2.html"; break;
+                    case '103': pageName = "Paper3.html"; break;
+                    case '104': pageName = "Paper4.html"; break;
+                    case '105': pageName = "Paper5.html"; break;
+                    case '106': pageName = "Paper6.html"; break;
+                    case '107': pageName = "Paper7.html"; break;
+                    case '108': pageName = "Paper8.html"; break;
+                    case '109': pageName = "Paper9.html"; break;
+                    case '110': pageName = "Paper10.html"; break;
+                    case '111': pageName = "Paper11.html"; break;
+                    case '112': pageName = "Paper12.html"; break;
+                    case '113': pageName = "Paper13.html"; break;
+                    case '114': pageName = "Paper14.html"; break;
+                    case '115': pageName = "Paper15.html"; break;
+                    case '116': pageName = "Paper16.html"; break;
+                    case '117': pageName = "Paper17.html"; break;
+                    case '118': pageName = "Paper18.html"; break;
+                    case '119': pageName = "Paper19.html"; break;
+                    case '120': pageName = "Paper20.html"; break;
+                    default:
+                        alert("Selected paper code is currently unavailable.");
+                        return;
+                }
+                window.location.href = pageName + "?lng=" + id;
+            }
+        }
+    </script>
+
+        <!-- Dynamic Dynamic Fallback Loader -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Uncompiled expression dynamic fallbacks
+            var snameSpan = $('#sname');
+            if (snameSpan.length && (snameSpan.text().includes('student.name') || snameSpan.text().trim() === '' || snameSpan.text().trim() === '[:]')) {
+                try {
+                    var user = JSON.parse(localStorage.getItem('student'));
+                    if (user && user[0]) {
+                        snameSpan.text(user[0].firstName + " " + user[0].lastName);
+                    } else {
+                        snameSpan.text("Guest Candidate");
+                    }
+                } catch (e) {
+                    snameSpan.text("Guest Candidate");
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

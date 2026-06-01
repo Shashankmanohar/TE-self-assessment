@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="AITS Online Examination Practice Centre — Practice mock tests for JEE Main, JEE Advanced, NEET, Board Exams & NCERT by Team Excellent Career Institute, Patna.">
+    <meta name="theme-color" content="#522871">
+
+    <link rel="icon" href="images/logo.ico" type="image/x-icon" />
+
+    <!-- Google Fonts: Inter + Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <link href="css/project.css" rel="stylesheet" />
+
+    <title>AITS — Team Excellent Career Institute</title>
+</head>
+
+<body class="bg">
+
+    <!-- Animated Background Particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Geometric Shapes -->
+    <div class="geo-shapes">
+        <div class="geo-shape geo-shape--1"></div>
+        <div class="geo-shape geo-shape--2"></div>
+        <div class="geo-shape geo-shape--3"></div>
+        <div class="geo-shape geo-shape--4"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar-custom" id="mainNav">
+        <div class="navbar-inner">
+            <a href="index.html" class="navbar-brand-custom">
+                <img src="https://teamexcellentcareerinstitute.in/assets/Favicon-BHqOP9mU.webp" alt="Team Excellent Logo" class="navbar-logo">
+                
+            </a>
+
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="navbar-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="BOARD/index.html">Board</a></li>
+                <li><a href="NCERT/index.html">NCERT</a></li>
+                <li><a href="PYQ/index.html">PYQ</a></li>
+                <li><a href="AITS/index.html">AITS</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-badge">
+                <span class="pulse-dot"></span>
+                Online Practice Platform
+            </div>
+
+            <h1>AITS Online Examination Practice Centre</h1>
+
+            <p>Prepare for India's toughest exams with real CBT-simulation mock tests. Practice JEE, NEET, Board & NCERT — anytime, anywhere.</p>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number" id="statPapers">50+</div>
+                    <div class="hero-stat-label">Mock Papers</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">4</div>
+                    <div class="hero-stat-label">Exam Categories</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">3</div>
+                    <div class="hero-stat-label">Languages</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Cards -->
+        <section class="categories-grid" id="categories">
+
+            <!-- BOARD Card -->
+            <a href="BOARD/index.html" class="category-card" id="cardBoard">
+                <div class="card-icon card-icon--board">📘</div>
+                <div class="card-title">BOARD</div>
+                <div class="card-subtitle">Class 11th & 12th board exam practice — Physics, Chemistry, Maths, Biology</div>
+                <div class="card-arrow">→</div>
+            </a>
+
+            <!-- NCERT Card -->
+            <a href="NCERT/index.html" class="category-card" id="cardNcert">
+                <div class="card-icon card-icon--ncert">📗</div>
+                <div class="card-title">NCERT</div>
+                <div class="card-subtitle">Chapter-wise NCERT quizzes — strengthen your fundamentals across all subjects</div>
+                <div class="card-arrow">→</div>
+            </a>
+
+            <!-- PYQ Card -->
+            <a href="PYQ/index.html" class="category-card" id="cardPyq">
+                <div class="card-icon card-icon--pyq">📕</div>
+                <div class="card-title">PYQ</div>
+                <div class="card-subtitle">Previous Year Questions from JEE Main, JEE Advanced & NEET exams</div>
+                <div class="card-arrow">→</div>
+            </a>
+
+            <!-- AITS Card -->
+            <a href="AITS/index.html" class="category-card" id="cardAits">
+                <div class="card-icon card-icon--aits">🏆</div>
+                <div class="card-title">AITS</div>
+                <div class="card-subtitle">All India Test Series — full-length timed mock tests with real exam interface</div>
+                <div class="card-arrow">→</div>
+            </a>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 <a href="https://teamexcellentcareerinstitute.in/" target="_blank" rel="noopener">Team Excellent Career Institute</a>, Patna. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Navbar scroll effect
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 30);
+        });
+
+        // Mobile hamburger toggle
+                const hamburger = document.getElementById('hamburgerBtn');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            hamburger.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                navLinks.classList.remove('open');
+                hamburger.classList.remove('open');
+            }
+        });
+
+        // Animate stats counter
+        function animateCounter(el, target, duration) {
+            const isNumber = !isNaN(parseInt(target));
+            if (!isNumber) return;
+            const num = parseInt(target);
+            const suffix = target.replace(/[0-9]/g, '');
+            let start = 0;
+            const step = Math.ceil(num / (duration / 16));
+            const timer = setInterval(() => {
+                start += step;
+                if (start >= num) {
+                    start = num;
+                    clearInterval(timer);
+                }
+                el.textContent = start + suffix;
+            }, 16);
+        }
+
+        // Intersection observer for stats animation
+        const statsSection = document.querySelector('.hero-stats');
+        if (statsSection) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.hero-stat-number').forEach(el => {
+                            animateCounter(el, el.textContent, 1200);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            observer.observe(statsSection);
+        }
+    </script>
+
+</body>
+
+</html>

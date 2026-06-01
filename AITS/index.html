@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="AITS — All India Test Series for JEE Main, JEE Advanced & NEET. Full-length timed mock tests by Team Excellent Career Institute.">
+    <meta name="theme-color" content="#522871">
+
+    <link rel="icon" href="images/logo.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="css/project.css" rel="stylesheet" />
+
+    <title>AITS — All India Test Series | Team Excellent</title>
+</head>
+
+<body class="bg">
+
+    <!-- Animated Background -->
+    <div class="particles">
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    </div>
+    <div class="geo-shapes">
+        <div class="geo-shape geo-shape--1"></div><div class="geo-shape geo-shape--2"></div>
+        <div class="geo-shape geo-shape--3"></div><div class="geo-shape geo-shape--4"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar-custom" id="mainNav">
+        <div class="navbar-inner">
+            <a href="../index.html" class="navbar-brand-custom">
+                <img src="https://teamexcellentcareerinstitute.in/assets/Favicon-BHqOP9mU.webp" alt="Team Excellent Logo" class="navbar-logo">
+                
+            </a>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="navbar-links" id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../BOARD/index.html">Board</a></li>
+                <li><a href="../NCERT/index.html">NCERT</a></li>
+                <li><a href="../PYQ/index.html">PYQ</a></li>
+                <li><a href="index.html" class="active">AITS</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="section-page">
+
+            <!-- Breadcrumb -->
+            <div class="breadcrumb-nav">
+                <a href="../index.html">🏠 Home</a>
+                <span class="separator">›</span>
+                <span class="current">AITS</span>
+            </div>
+
+            <h2>All India Test Series</h2>
+            <p class="section-desc">Select your target exam and start a full-length timed mock test with real CBT interface.</p>
+
+            <!-- Exam Cards -->
+            <div class="sub-categories">
+
+                <a href="quiz/jee main/index.html" class="sub-card" id="aitsJeeMain">
+                    <span class="sub-icon">⚡</span>
+                    <div class="sub-title">JEE MAIN</div>
+                    <div class="sub-desc">75 MCQ + 15 Numerical • 3 Hours</div>
+                </a>
+
+                <a href="quiz/jee advance/index.html" class="sub-card" id="aitsJeeAdv">
+                    <span class="sub-icon">🔥</span>
+                    <div class="sub-title">JEE ADVANCE</div>
+                    <div class="sub-desc">Advanced level paper simulation</div>
+                </a>
+
+                <a href="quiz/neet/index.html" class="sub-card" id="aitsNeet">
+                    <span class="sub-icon">🩺</span>
+                    <div class="sub-title">NEET</div>
+                    <div class="sub-desc">180 MCQ • 3 Hours 20 Minutes</div>
+                </a>
+
+            </div>
+
+            <a href="../index.html" class="back-btn">← Back to Home</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 <a href="https://teamexcellentcareerinstitute.in/" target="_blank" rel="noopener">Team Excellent Career Institute</a>, Patna. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 30));
+        document.getElementById('hamburgerBtn').addEventListener('click', (e) => {
+                e.stopPropagation();
+                document.getElementById('navLinks').classList.toggle('open');
+                document.getElementById('hamburgerBtn').classList.toggle('open');
+            });
+
+            document.addEventListener('click', (e) => {
+                const navLinks = document.getElementById('navLinks');
+                const hamburger = document.getElementById('hamburgerBtn');
+                if (navLinks && navLinks.classList.contains('open') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                    navLinks.classList.remove('open');
+                    hamburger.classList.remove('open');
+                }
+            });
+    </script>
+</body>
+
+</html>
